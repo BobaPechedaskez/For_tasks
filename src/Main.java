@@ -4,18 +4,25 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int N = scanner.nextInt();
         int[] a = new int[N];
-        int min;
-        for (int i = 0; i<N; i++){
+        int k = 0;
+        int z = 0;
+        for (int i = 0; i < N; i++) {
             int b = scanner.nextInt();
-            a[i]=b;
-        }
-        for (int i = 0; i < N/2; i++) {
-            min = a[i];
-            a[i]=a[N-i-1];
-            a[N-i-1]=min;
+            a[i] = b;
         }
         for (int i = 0; i < N; i++) {
-            System.out.print(a[i]+" ");
+            int c = a[i];
+            int min = 0;
+            for (int j = 0; j < N; j++) {
+                if (a[j] == c) {
+                    min++;
+                }
+                if (min > k) {
+                    k = min;
+                    z = a[j];
+                }
+            }
         }
+        System.out.print(z);
     }
 }
